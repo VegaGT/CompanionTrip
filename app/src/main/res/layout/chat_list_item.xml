@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:padding="@dimen/normal_space">
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:id="@+id/chat_front">
+        <de.hdodenhof.circleimageview.CircleImageView
+            android:layout_width="wrap_content"
+            android:layout_height="50dp"
+            android:id="@+id/chat_portrait"
+            android:src="@drawable/portrait_pic"/>
+    </RelativeLayout>
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="5"
+        android:id="@+id/chat_mid"
+        android:layout_toRightOf="@id/chat_front"
+        android:layout_marginLeft="10dp">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chat_name"
+            android:ellipsize="end"
+            android:maxLines="1"
+            android:text="lear"
+            android:textSize="18dp"
+            android:textColor="@color/colorMaterialGrey900"
+            android:layout_marginTop="3dp" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chat_content"
+            android:layout_below="@id/chat_name"
+            android:layout_marginTop="3dp"
+            android:text="hhhhhhhhh"
+            android:textSize="12dp"
+            android:textColor="@color/colorMaterialGrey500"
+            android:ellipsize="end"
+            android:maxLines="1"/>
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/chat_date"
+            android:text="11月30日"
+            android:textSize="10dp"
+            android:textColor="@color/colorMaterialGrey500"
+            android:layout_alignParentRight="true"/>
+        <TextView
+            android:id="@+id/num_not_read"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/chat_date"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentRight="true"
+            android:background="@color/myred"
+            android:padding="1dp"
+            android:text="+3"
+            android:textColor="#fff"/>
+    </RelativeLayout>
+
+</LinearLayout>
