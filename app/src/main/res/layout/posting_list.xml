@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <RelativeLayout
+        android:id="@+id/top_relative"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_bar_height"
+        android:background="@color/colorPrimary"
+        android:elevation="@dimen/action_bar_elevation">
+
+        <ImageButton
+            android:id="@+id/back_to_CityList"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:onClick="backToPersonal"
+            android:padding="@dimen/normal_space"
+            android:src="@drawable/ic_arrow_back_white_24dp"
+            style="?actionButtonStyle"/>
+
+        <TextView
+            android:id="@+id/city"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:singleLine="true"
+            android:textColor="@color/white"
+            android:textSize="@dimen/action_bar_title_text_size"/>
+
+        <ImageButton
+            android:id="@+id/posting_create"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:padding="@dimen/normal_space"
+            android:src="@drawable/ic_add_white_24dp"
+            style="?actionButtonStyle"/>
+
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/base_on_date"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:background="?selectableItemBackground"
+            android:text="按发帖日期"
+            android:textColor="@color/colorMaterialGrey700"
+            android:textSize="@dimen/small_text_size"/>
+
+        <Button
+            android:id="@+id/base_on_joined_number"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:background="?selectableItemBackground"
+            android:text="按报名人数"
+            android:textColor="@color/colorMaterialGrey700"
+            android:textSize="@dimen/small_text_size"/>
+
+        <Button
+            android:id="@+id/base_on_person_number"
+            android:layout_width="0dp"
+            android:layout_height="35dp"
+            android:layout_weight="1"
+            android:background="?selectableItemBackground"
+            android:text="按总人数"
+            android:textColor="@color/colorMaterialGrey700"
+            android:textSize="@dimen/small_text_size"/>
+    </LinearLayout>
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/swipe_container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ListView
+            android:id="@+id/postings"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:divider="@null">
+        </ListView>
+
+    </android.support.v4.widget.SwipeRefreshLayout>
+
+</LinearLayout>

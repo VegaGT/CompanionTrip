@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">创建行程</string>
+
+    <string name="join_now">申请加入</string>
+    <string name="joined_in">已加入</string>
+
+    <string name="home">首页</string>
+    <string name="discover">发现</string>
+    <string name="my_info">个人中心</string>
+
+    <string name="hot_cities">热门城市</string>
+    <string name="hot_posts">热门行程</string>
+
+    <string name="please_enter_destination">请输入目的地</string>
+    <string name="click_to_login">请登录</string>
+    <string name="edit">编辑</string>
+    <string name="action_settings">Settings</string>
+</resources>

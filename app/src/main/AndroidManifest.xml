@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.example.journey">
+
+    <!-- 允许联网 -->
+    <uses-permission android:name="android.permission.INTERNET" />
+    <!-- 获取GSM（2g）、WCDMA（联通3g）等网络状态的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
+    <!-- 获取wifi网络状态的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK" />
+    <!-- 获取sd卡写的权限，用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 允许读取手机状态 用于创建BmobInstallation -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <!-- 摄像头 -->
+    <uses-permission android:name="android.permission.CAMERA" />
+    <!-- 录音 -->
+    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+    <!-- 通知震动 -->
+    <uses-permission android:name="android.permission.VIBRATE" />
+
+    <!-- 推送所需的权限 -->
+    <uses-permission android:name="android.permission.RECEIVE_USER_PRESENT" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/icon"
+        android:label="伴旅"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme"
+        tools:replace="android:icon, android:theme, android:label">
+
+        <!--
+     ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <!--<meta-data-->
+            <!--android:name="Bmob_APP_KEY"-->
+            <!--android:value="6ee9523075948328b47697b65ee59f1f" />-->
+
+        <activity android:name=".activity.MainActivity">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name=".activity.ChooseAreaActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.FirstPageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.LoginActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.RegisterActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.CardActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.SettingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.EditActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.PostingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.CompanionActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.RatingActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MessageBoardActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.CreateActivity"
+            android:exported="true"
+            android:windowSoftInputMode="adjustPan" />
+        <activity
+            android:name=".activity.SetPortraitActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.TripMessageActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.MyCreateSchemeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.PostInvolveMeActivity"
+            android:exported="true" />
+        <activity
+            android:name=".activity.ChangePassword"
+            android:exported="true" />
+        <activity android:name=".activity.ChooseCityActivity" />
+        <activity android:name=".activity.ChooseCityActivity2" />
+        <activity
+            android:name=".activity.OtherPeople"
+            android:theme="@style/translucentStatus" />
+        <activity android:name=".activity.ThemeActivity" />
+        <activity android:name=".activity.AboutUsActivity" />
+        <activity android:name=".activity.FeedBackActivity" />
+        <activity android:name=".activity.OtherCreatedSchemeActivity" />
+        <activity android:name=".activity.CompanionNewActivity" />
+        <activity
+            android:name=".activity.FullImageActivity"
+            android:theme="@style/AppTheme" />
+        <activity android:name=".activity.ChatListActivity" />
+
+        <receiver
+            android:name="cn.bmob.newim.core.ConnectChangeReceiver"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="cn.bmob.action.RECONNECT" />
+                <action android:name="android.net.conn.CONNECTIVITY_CHANGE" />
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.USER_PRESENT" />
+            </intent-filter>
+        </receiver>
+
+        <service
+            android:name="cn.bmob.newim.core.service.BmobIMService"
+            android:process=":bmobcore" />
+        <service
+            android:name="cn.bmob.newim.core.service.NotifyService"
+            android:process=":bmobcore" />
+        <service android:name="cn.bmob.newim.core.service.ReConnectService" />
+        <service android:name="cn.bmob.newim.core.service.HeartBeatService" />
+
+        <activity android:name=".activity.ChatActivity"></activity>
+    </application>
+
+</manifest>

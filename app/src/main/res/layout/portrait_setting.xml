@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/action_bar_height"
+        android:background="@color/colorPrimary"
+        android:elevation="@dimen/action_bar_elevation">
+
+        <ImageView
+            android:id="@+id/back_to_personal_portrait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:padding="@dimen/normal_space"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_arrow_back_white_24dp"
+            style="?actionButtonStyle"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:padding="10.0dip"
+            android:singleLine="true"
+            android:text="我的头像"
+            android:textColor="#fff"
+            android:textSize="@dimen/action_bar_title_text_size"/>
+
+        <TextView
+            android:id="@+id/save_portrait"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:padding="@dimen/normal_space"
+            android:text="保存"
+            android:textColor="#fff"
+            android:textSize="@dimen/normal_text_size"
+            style="?actionButtonStyle"/>
+    </RelativeLayout>
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/portrait_in_setting"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="100dp"/>
+
+    <Button
+        android:id="@+id/set_portrait_bnt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:minHeight="0dp"
+        android:layout_below="@+id/portrait_in_setting"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/tag_bg_primary"
+        android:paddingBottom="@dimen/small_space"
+        android:paddingLeft="@dimen/normal_space"
+        android:paddingRight="@dimen/normal_space"
+        android:paddingTop="@dimen/small_space"
+        android:text="设置头像"
+        android:textColor="#fff"
+        android:textSize="@dimen/normal_text_size"/>
+</RelativeLayout>

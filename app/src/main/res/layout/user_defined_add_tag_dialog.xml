@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <EditText
+        android:id="@+id/user_defined_tag"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:gravity="left"
+        android:maxLength="5"/>
+    <TextView
+        android:id="@+id/num_5_for_tag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/user_defined_tag"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="15dp"
+        android:text="/5"
+        android:textSize="20dp"
+        android:textColor="#808080"/>
+    <TextView
+        android:id="@+id/user_tag_word_num"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="0"
+        android:textSize="20dp"
+        android:textColor="#808080"
+        android:layout_below="@id/user_defined_tag"
+        android:layout_toLeftOf="@id/num_5_for_tag"/>
+</RelativeLayout>

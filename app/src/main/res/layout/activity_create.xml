@@ -1,0 +1,673 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@color/colorMaterialGrey50">
+
+    <RelativeLayout
+        android:id="@+id/create_title"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_bar_height"
+        android:background="@color/colorPrimary"
+        android:elevation="@dimen/action_bar_elevation">
+
+        <ImageButton
+            style="?actionButtonStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:onClick="btnBack"
+            android:padding="@dimen/normal_space"
+            android:src="@drawable/ic_arrow_back_white_24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/action_bar_height"
+            android:layout_centerInParent="true"
+            android:gravity="center_vertical"
+            android:text="创建行程"
+            android:textColor="@color/white"
+            android:textSize="@dimen/action_bar_title_text_size"/>
+    </RelativeLayout>
+
+    <ScrollView
+        android:id="@+id/create_scroll"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/create_title"
+        android:clipToPadding="false"
+        android:paddingBottom="90dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/normal_space"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:id="@+id/choose_address1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="地点1"
+                    android:textSize="16dp"/>
+
+                <Spinner
+                    android:id="@+id/Spinner_province1"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:padding="5dp"/>
+
+                <Spinner
+                    android:id="@+id/Spinner_city1"
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:padding="5dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/choose_address2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="地点2"
+                    android:textSize="16dp"/>
+
+                <Spinner
+                    android:id="@+id/Spinner_province2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:padding="5dp"/>
+
+                <Spinner
+                    android:id="@+id/Spinner_city2"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:padding="5dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/choose_address3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="地点3"
+                    android:textSize="16dp"/>
+
+                <Spinner
+                    android:id="@+id/Spinner_province3"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:padding="5dp"/>
+
+                <Spinner
+                    android:id="@+id/Spinner_city3"
+
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:padding="5dp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/choose_address4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:visibility="gone">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="1"
+                    android:text="地点4"
+                    android:textSize="16dp"/>
+
+                <Spinner
+                    android:id="@+id/Spinner_province4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:padding="5dp"/>
+
+                <Spinner
+                    android:id="@+id/Spinner_city4"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_weight="2"
+                    android:padding="5dp"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/addNewLocation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_space"
+                android:drawableLeft="@drawable/ic_add_circle"
+                android:drawablePadding="@dimen/small_space"
+                android:gravity="center_vertical"
+                android:onClick="bntAddNewLocation"
+                android:text="添加新地点"
+                android:textSize="@dimen/normal_text_size"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_space"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="起始时间"
+                    android:maxLength="10"
+                    android:textColor="@color/colorMaterialGrey700"
+                    android:textSize="@dimen/normal_text_size"/>
+
+                <EditText
+                    android:id="@+id/et_start_time"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:textColor="@color/colorMaterialGrey900"
+                    android:textSize="@dimen/normal_text_size"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:focusable="true"
+                android:focusableInTouchMode="true">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="结束时间"
+                    android:textColor="@color/colorMaterialGrey700"
+                    android:textSize="@dimen/normal_text_size"/>
+
+                <EditText
+                    android:id="@+id/et_end_time"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_horizontal"
+                    android:focusable="false"
+                    android:inputType="date"
+                    android:maxLength="10"
+                    android:textColor="@color/colorMaterialGrey900"
+                    android:textSize="@dimen/normal_text_size"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_space">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="人数限制"
+                    android:textColor="@color/colorMaterialGrey700"
+                    android:textSize="@dimen/normal_text_size"/>
+
+                <Spinner
+                    android:id="@+id/Spinner_numberOfPeople"
+                    android:layout_width="82dp"
+                    android:layout_height="wrap_content"
+                    android:entries="@array/numbersOfPeople"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_space">
+
+                <TextView
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:text="行程标题"
+                    android:textColor="@color/colorMaterialGrey700"
+                    android:textSize="@dimen/normal_text_size"/>
+
+                <EditText
+                    android:id="@+id/create_trip_title"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="请输入标题内容…"
+                    android:maxLines="2"
+                    android:textColor="@color/colorMaterialGrey900"
+                    android:textColorHint="@color/colorMaterialGrey300"
+                    android:textSize="16dp"/>
+            </LinearLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="-8dp"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/choose_tags"
+                    android:layout_width="80dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="8dp"
+                    android:layout_marginBottom="@dimen/small_space"
+                    android:text="选择标签"
+                    android:textColor="@color/colorMaterialGrey700"
+                    android:textSize="@dimen/normal_text_size"/>
+
+                <TextView
+                    android:id="@+id/count_of_tags"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/choose_tags"
+                    android:text="0"
+                    android:textColor="@color/colorMaterialGrey700"
+                    android:textSize="@dimen/normal_text_size"/>
+
+                <TextView
+                    android:id="@+id/count_3_of_tags"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/count_of_tags"
+                    android:text=" / 3"
+                    android:textColor="@color/colorMaterialGrey700"
+                    android:textSize="@dimen/normal_text_size"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/count_3_of_tags"
+                    android:text="（非必选）"
+                    android:textColor="@color/colorMaterialGrey700"
+                    android:textSize="@dimen/normal_text_size"/>
+
+                <TextView
+                    android:id="@+id/tag1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/choose_tags"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:background="@drawable/tag_bg_grey300"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="毕业旅行"
+                    android:textColor="#fff"/>
+
+                <TextView
+                    android:id="@+id/tag2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/choose_tags"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_toRightOf="@id/tag1"
+                    android:background="@drawable/tag_bg_grey300"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="男女不限"
+                    android:textColor="#fff"/>
+
+                <TextView
+                    android:id="@+id/tag3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/choose_tags"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_toRightOf="@id/tag2"
+                    android:background="@drawable/tag_bg_grey300"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="只限女生"
+                    android:textColor="#fff"/>
+
+                <TextView
+                    android:id="@+id/tag4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/choose_tags"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_toRightOf="@id/tag3"
+                    android:background="@drawable/tag_bg_grey300"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="只限男生"
+                    android:textColor="#fff"/>
+
+                <TextView
+                    android:id="@+id/tag5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tag1"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:background="@drawable/tag_bg_grey300"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="拼车"
+                    android:textColor="#fff"/>
+
+                <TextView
+                    android:id="@+id/tag6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tag1"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:layout_toRightOf="@id/tag5"
+                    android:background="@drawable/tag_bg_grey300"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="拼住"
+                    android:textColor="#fff"/>
+
+                <TextView
+                    android:id="@+id/tag7"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tag1"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:layout_toRightOf="@id/tag6"
+                    android:background="@drawable/tag_bg_grey300"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="骑行"
+                    android:textColor="#fff"/>
+
+                <TextView
+                    android:id="@+id/tag8"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tag1"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:layout_toRightOf="@id/tag7"
+                    android:background="@drawable/tag_bg_grey300"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="自驾"
+                    android:textColor="#fff"/>
+
+                <TextView
+                    android:id="@+id/tag9"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tag1"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:layout_toRightOf="@id/tag8"
+                    android:background="@drawable/tag_bg_grey300"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="徒步"
+                    android:textColor="#fff"/>
+
+                <TextView
+                    android:id="@+id/tag10"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tag1"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:layout_toRightOf="@id/tag9"
+                    android:background="@drawable/tag_bg_grey300"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="野营"
+                    android:textColor="#fff"/>
+
+                <TextView
+                    android:id="@+id/tag11"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tag5"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:background="@drawable/tag_bg_grey300"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="志愿活动"
+                    android:textColor="#fff"/>
+
+                <TextView
+                    android:id="@+id/tag12"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tag5"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:layout_toRightOf="@id/tag11"
+                    android:background="@drawable/tag_bg_grey300"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="摄影"
+                    android:textColor="#fff"
+                    />
+
+                <TextView
+                    android:id="@+id/tag13"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tag5"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:layout_toRightOf="@id/tag12"
+                    android:background="@drawable/tag_bg_grey300"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="探险"
+                    android:textColor="#fff"/>
+
+                <TextView
+                    android:id="@+id/tag14"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tag5"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:layout_toRightOf="@id/tag13"
+                    android:background="@drawable/tag_bg_grey300"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="大自然"
+                    android:textColor="#fff"/>
+
+                <TextView
+                    android:id="@+id/tag15"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tag11"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:background="@drawable/tag_bg_primary"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="自定义"
+                    android:textColor="#fff"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/tag16"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tag11"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:layout_toRightOf="@id/tag15"
+                    android:background="@drawable/tag_bg_primary"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="自定义"
+                    android:textColor="#fff"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/tag17"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/tag11"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:layout_toRightOf="@id/tag16"
+                    android:background="@drawable/tag_bg_primary"
+                    android:clickable="true"
+                    android:padding="5dp"
+                    android:text="自定义"
+                    android:textColor="#fff"
+                    android:visibility="gone"/>
+
+                <TextView
+                    android:id="@+id/add_my_tags"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tag11"
+                    android:layout_marginLeft="@dimen/small_space"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:layout_toRightOf="@id/tag17"
+                    android:drawableLeft="@drawable/ic_add_circle"
+                    android:drawablePadding="@dimen/small_space"
+                    android:gravity="center_vertical"
+                    android:text="自定义标签"/>
+
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_space">
+
+                <EditText
+                    android:id="@+id/add_content"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="@dimen/small_space"
+                    android:background="@color/white"
+                    android:gravity="top"
+                    android:hint="请输入行程描述…"
+                    android:inputType="textMultiLine"
+                    android:maxLines="10"
+                    android:minLines="6"
+                    android:scrollbars="vertical"
+                    android:textColor="@color/colorMaterialGrey900"
+                    android:textColorHint="@color/colorMaterialGrey300"
+                    android:textSize="@dimen/normal_text_size"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="@dimen/small_space"
+                android:weightSum="3">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginRight="@dimen/small_space"
+                    android:layout_weight="1"
+                    android:text="添加图片"
+                    android:textColor="@color/colorMaterialGrey700"
+                    android:textSize="16dp"/>
+
+                <ImageView
+                    android:id="@+id/picture1"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:paddingLeft="@dimen/tiny_space"
+                    android:paddingRight="@dimen/tiny_space"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:id="@+id/picture2"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:paddingLeft="@dimen/tiny_space"
+                    android:paddingRight="@dimen/tiny_space"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:id="@+id/picture3"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:paddingLeft="@dimen/tiny_space"
+                    android:paddingRight="@dimen/tiny_space"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:id="@+id/picture4"
+                    android:layout_width="45dp"
+                    android:layout_height="45dp"
+                    android:paddingLeft="@dimen/tiny_space"
+                    android:paddingRight="@dimen/tiny_space"
+                    android:layout_gravity="center_vertical"
+                    android:visibility="gone"/>
+
+                <ImageView
+                    android:id="@+id/choose_trip_picture"
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:layout_marginLeft="5dp"
+                    android:onClick="bntChoosePicture"
+                    android:src="@drawable/ic_add_box_black_24dp"/>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+
+    <RelativeLayout
+        android:id="@+id/create_submit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:clipToPadding="false"
+        android:padding="@dimen/normal_space">
+
+        <Button
+            android:id="@+id/submitJourney"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/positive_button_background_accent"
+            android:text="发布行程"
+            android:textColor="#ffffff"
+            android:textSize="20dp"/>
+    </RelativeLayout>
+
+</RelativeLayout>
+

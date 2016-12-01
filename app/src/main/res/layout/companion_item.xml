@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center_vertical"
+    android:orientation="horizontal"
+    android:padding="@dimen/normal_space">
+
+    <de.hdodenhof.circleimageview.CircleImageView
+        android:id="@+id/companion_portrait"
+        android:layout_width="@dimen/normal_avatar_size"
+        android:layout_height="@dimen/normal_avatar_size"
+        android:layout_marginRight="@dimen/small_space"
+        android:src="@drawable/portrait_pic"/>
+
+    <TextView
+        android:id="@+id/companion_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="龙泽"
+        android:textColor="@color/colorMaterialGrey700"
+        android:textSize="@dimen/large_text_size"
+        android:textStyle="bold"/>
+
+    <Space
+        android:layout_width="0dp"
+        android:layout_height="2dp"
+        android:layout_weight="1"/>
+
+    <TextView
+        android:id="@+id/rateTextView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="评价他 / 她"
+        android:textColor="@color/colorPrimary"
+        android:textSize="@dimen/normal_text_size"/>
+
+    <ImageView
+        android:id="@+id/enter_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_chevron_right_primary_24dp"/>
+</LinearLayout>

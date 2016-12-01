@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+             xmlns:app="http://schemas.android.com/apk/res-auto"
+             android:layout_width="match_parent"
+             android:layout_height="wrap_content">
+
+    <android.support.v7.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="180dp"
+        android:layout_marginBottom="4dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="4dp"
+        app:cardCornerRadius="4dp">
+
+        <ImageView
+            android:id="@+id/posting_background"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:foreground="@drawable/gradients_bg_left"
+            android:scaleType="centerCrop"
+            android:src="@drawable/bojack"/>
+
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="15dp">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:id="@+id/posting_portrait"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:layout_marginLeft="10dp"
+                    android:layout_marginStart="10dp"
+                    android:src="@drawable/portrait_pic"/>
+
+                <TextView
+                    android:id="@+id/text_by"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:text="by"
+                    android:textColor="#fff"
+                    android:textSize="10sp"
+                    android:textStyle="italic"/>
+
+                <TextView
+                    android:id="@+id/posting_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginLeft="5dp"
+                    android:text="李志远"
+                    android:textColor="#fff"
+                    android:textSize="10sp"/>
+
+                <ImageView
+                    android:id="@+id/posting_sex"
+                    android:layout_width="11dp"
+                    android:layout_height="11dp"
+                    android:layout_gravity="center_vertical"
+                    android:layout_marginBottom="1dp"
+                    android:layout_marginLeft="1dp"
+                    android:padding="1dp"
+                    android:src="@drawable/male_pic"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/posting_content"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="10dp"
+                android:layout_marginTop="15dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="云南三地8天求同行"
+                android:textColor="#fff"
+                android:textSize="20sp"
+                android:textStyle="bold"/>
+
+            <ImageView
+                android:id="@+id/line_with_color"
+                android:layout_width="5dp"
+                android:layout_height="28dp"
+                android:layout_below="@id/posting_content"
+                android:layout_marginLeft="10dp"
+                android:layout_marginRight="8dp"
+                android:layout_marginTop="3dp"
+                android:src="@drawable/tag_bg_primary"/>
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/posting_content"
+                android:layout_marginTop="3dp"
+                android:layout_toRightOf="@id/line_with_color">
+
+                <LinearLayout
+                    android:id="@+id/time_and_number"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:id="@+id/posting_date"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="7.10-7.18"
+                        android:textColor="#fff"
+                        android:textSize="10dp"
+                        android:textStyle="bold"/>
+
+                    <TextView
+                        android:id="@+id/posting_number"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="10dp"
+                        android:text="人数:2/5"
+                        android:textColor="#fff"
+                        android:textSize="10sp"
+                        android:textStyle="bold"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/time_and_number"
+                    android:layout_marginTop="3dp">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="关键词:"
+                        android:textColor="#fff"
+                        android:textSize="10sp"/>
+
+                    <TextView
+                        android:id="@+id/posting_keyword0"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text=""
+                        android:textColor="#fff"
+                        android:textSize="10sp"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/posting_keyword1"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text=""
+                        android:textColor="#fff"
+                        android:textSize="10sp"
+                        android:visibility="gone"/>
+
+                    <TextView
+                        android:id="@+id/posting_keyword2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text=""
+                        android:textColor="#fff"
+                        android:textSize="10sp"
+                        android:visibility="gone"/>
+                </LinearLayout>
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/posting_accomplished"
+                android:layout_width="50dp"
+                android:layout_height="30dp"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="true"
+                android:layout_marginBottom="@dimen/normal_space"
+                android:layout_marginRight="@dimen/normal_space"
+                android:background="@drawable/positive_button_background"
+                android:clickable="false"
+                android:focusable="false"
+                android:text="完成"
+                android:textColor="#fff"
+                android:visibility="visible"/>
+        </RelativeLayout>
+    </android.support.v7.widget.CardView>
+</FrameLayout>
