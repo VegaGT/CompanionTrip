@@ -11,6 +11,10 @@
     <string name="hot_cities">热门城市</string>
     <string name="hot_posts">热门行程</string>
 
+    <string name="my_credit">我的积分</string>
+    <string name="my_order">我的订单</string>
+    <string name="way_get_credit">如何赚积分</string>
+
     <string name="please_enter_destination">请输入目的地</string>
     <string name="click_to_login">请登录</string>
     <string name="edit">编辑</string>

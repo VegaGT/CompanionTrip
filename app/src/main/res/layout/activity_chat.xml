@@ -16,7 +16,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:onClick="back_to_chat_icon"
+            android:id="@+id/back_to_chat_icon"
             android:padding="@dimen/normal_space"
             android:src="@drawable/ic_arrow_back"
             style="?actionButtonStyle"/>
@@ -31,11 +31,43 @@
             android:textSize="@dimen/action_bar_title_text_size"/>
     </RelativeLayout>
 
-<ListView
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:id="@+id/chat_listview">
 
-</ListView>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <android.support.v4.widget.SwipeRefreshLayout
+            android:id="@+id/sw_refresh"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1">
+            <android.support.v7.widget.RecyclerView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/chat_recyclerview">
+            </android.support.v7.widget.RecyclerView>
+        </android.support.v4.widget.SwipeRefreshLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="0.2">
+            <FrameLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <EditText
+                    android:layout_width="280dp"
+                    android:layout_height="wrap_content"
+                    android:hint="请输入消息"
+                    android:maxLines="10"
+                    android:id="@+id/send_edit"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="end"
+                    android:id="@+id/send_btn"/>
+            </FrameLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 </LinearLayout>

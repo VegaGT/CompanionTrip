@@ -29,6 +29,7 @@
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
+        android:name=".receiver.BmobIMApplication"
         android:allowBackup="true"
         android:icon="@mipmap/icon"
         android:label="伴旅"
@@ -43,9 +44,9 @@
         <meta-data
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
-        <!--<meta-data-->
-            <!--android:name="Bmob_APP_KEY"-->
-            <!--android:value="6ee9523075948328b47697b65ee59f1f" />-->
+        <meta-data
+            android:name="Bmob_APP_KEY"
+            android:value="6ee9523075948328b47697b65ee59f1f" />
 
         <activity android:name=".activity.MainActivity">
             <intent-filter>
@@ -141,7 +142,8 @@
         <service android:name="cn.bmob.newim.core.service.ReConnectService" />
         <service android:name="cn.bmob.newim.core.service.HeartBeatService" />
 
-        <activity android:name=".activity.ChatActivity"></activity>
+        <activity android:name=".activity.ChatActivity" />
+        <activity android:name=".activity.CreditMallActivity"></activity>
     </application>
 
 </manifest>

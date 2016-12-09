@@ -134,6 +134,13 @@ public class MyInformationFragment extends Fragment {
           } else {
             loginTip();
           }
+        }else if(i == 3){
+          if(userInfo != null){
+            Intent intent = new Intent(getActivity(),CreditMallActivity.class);
+            startActivity(intent);
+          }else{
+            loginTip();
+          }
         }
       }
     });
@@ -219,6 +226,8 @@ public class MyInformationFragment extends Fragment {
     personalMsgList.add(personalMsg2);
     PersonalMsg personalMsg3 = new PersonalMsg(R.drawable.ic_vote_up, "我的评价", R.drawable.ic_chevron_right_black_24dp);
     personalMsgList.add(personalMsg3);
+    PersonalMsg personalMsg4 = new PersonalMsg(R.drawable.ic_add_mall,"积分商城",R.drawable.ic_chevron_right_black_24dp);
+    personalMsgList.add(personalMsg4);
   }
 
   private void loginTip() {

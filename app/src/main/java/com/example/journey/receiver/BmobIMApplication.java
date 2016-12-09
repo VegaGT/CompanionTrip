@@ -2,6 +2,7 @@ package com.example.journey.receiver;
 
 import android.app.Application;
 import android.content.Context;
+import android.util.Log;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -22,6 +23,8 @@ public class BmobIMApplication extends Application {
             BmobIM.init(this);
             //注册消息接收器
             BmobIM.registerDefaultMessageHandler(new DemoMessageHandler(this));
+        } else {
+            Log.d("App", "packageName not equals getMyProcessName()");
         }
     }
 

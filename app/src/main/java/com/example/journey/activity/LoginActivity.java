@@ -132,10 +132,11 @@ public class LoginActivity extends Activity {
     login.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View v) {
+        //Toast.makeText(LoginActivity.this, "Fuck me", Toast.LENGTH_SHORT).show();
         User.loginByAccount(username.getText().toString(), password.getText().toString(), new LogInListener<User>() {
           @Override
           public void done(User user, BmobException e) {
-            if (user != null) {
+            if (e == null) {
               Toast toast = Toast.makeText(getApplicationContext(), "欢迎，" + user.getRealName(), Toast.LENGTH_SHORT);
               toast.show();
 
@@ -190,6 +191,7 @@ public class LoginActivity extends Activity {
 
               finish();
             } else {
+              Log.d("Login", e.getMessage());
               Toast toast = Toast.makeText(getApplicationContext(), "用户名/密码错误", Toast.LENGTH_SHORT);
               toast.show();
             }

@@ -211,6 +211,7 @@ public class CardActivity extends Activity {
       @Override
       public void onClick(View view) {
         BmobIMUserInfo info = new BmobIMUserInfo(user.getObjectId(),user.getRealName(),user.getUserIcon().getUrl());
+        if (BmobIM.getInstance() == null) Log.d("ERROR", "Null");
         BmobIM.getInstance().startPrivateConversation(info, new ConversationListener() {
           @Override
           public void done(BmobIMConversation c, BmobException e) {
@@ -221,6 +222,7 @@ public class CardActivity extends Activity {
               Intent intent1 = new Intent(CardActivity.this,ChatActivity.class);
               //intent1.putExtra("bundle", bundle);
               intent1.putExtra("c", c);
+              intent1.putExtra("oppuser",user);
               startActivity(intent1);
             }else{
               Log.d("failed",e.getMessage()+"("+e.getErrorCode()+")");

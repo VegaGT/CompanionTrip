@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/colorMaterialGrey50"
+    android:weightSum="1"
+    android:fitsSystemWindows="true">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/action_bar_height">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:paddingBottom="@dimen/bottom_bar_height"
+            android:weightSum="1">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="52dp"
+                    android:orientation="horizontal">
+                    <LinearLayout
+                        android:onClick="my_credit_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/ic_city_18dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="4dp"
+                            android:text="@string/my_credit"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:onClick="my_order_btn"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/ic_city_18dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/my_order"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+                    <LinearLayout
+                        android:onClick="way_get_credit"
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:orientation="vertical">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="8dp"
+                            android:src="@drawable/ic_city_18dp" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="@string/way_get_credit"
+                            android:layout_gravity="center"
+                            android:layout_marginTop="4dp"/>
+                    </LinearLayout>
+
+                </LinearLayout>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_marginBottom="@dimen/small_space"
+                    android:layout_height="200dp"
+                    android:background="@color/white"
+                    android:elevation="2dp">
+
+
+
+                    <android.support.v4.view.ViewPager
+                        android:id="@+id/goods_hottest"
+                        android:layout_width="match_parent"
+                        android:layout_height="200dp"/>
+
+                    <me.relex.circleindicator.CircleIndicator
+                        android:id="@+id/goods_indicator"
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_gravity="bottom"/>
+
+                </FrameLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:orientation="vertical"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="@dimen/small_space"
+                android:layout_marginRight="@dimen/small_space"
+                android:layout_marginBottom="@dimen/small_space">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingTop="@dimen/small_space"
+                        android:paddingBottom="@dimen/small_space"
+                        android:drawableLeft="@drawable/ic_city_18dp"
+                        android:drawablePadding="@dimen/small_space"
+                        android:text="热门商品"
+                        android:textStyle="bold"
+                        android:textSize="@dimen/normal_text_size"
+                        android:textColor="@color/colorMaterialGrey700"/>
+
+                    <ProgressBar
+                        android:id="@+id/goods_progress_bar"
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:layout_marginLeft="@dimen/small_space"
+                        android:layout_gravity="center_vertical"
+                        android:indeterminate="true"
+                        android:visibility="gone"/>
+
+                </LinearLayout>
+
+
+
+
+
+                <com.example.journey.lib.MyGridView
+                    android:id="@+id/grid_view_goods"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="2dp"
+                    android:columnWidth="90dp"
+                    android:horizontalSpacing="2dp"
+                    android:verticalSpacing="2dp"
+                    android:nestedScrollingEnabled="false"
+                    android:numColumns="3"
+                    android:stretchMode="columnWidth"/>
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/action_bar_height"
+        android:elevation="@dimen/action_bar_elevation"
+        android:gravity="center_vertical"
+        android:background="@color/colorPrimary"
+        android:fitsSystemWindows="true">
+
+
+        <ImageView
+            android:id="@+id/back_btn_mall"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:onClick="backToMall"
+            android:padding="@dimen/normal_space"
+            android:src="@drawable/ic_arrow_back_white_24dp"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:singleLine="true"
+            android:text="积分商城"
+            android:textColor="@color/white"
+            android:textSize="@dimen/action_bar_title_text_size"/>
+
+
+
+
+
+    </RelativeLayout>
+
+
+
+</android.support.design.widget.CoordinatorLayout>
