@@ -15,8 +15,11 @@
     <string name="my_order">我的订单</string>
     <string name="way_get_credit">如何赚积分</string>
 
+    <string name="eat_and_drink">当地的吃喝玩乐</string>
+
     <string name="please_enter_destination">请输入目的地</string>
     <string name="click_to_login">请登录</string>
     <string name="edit">编辑</string>
+    <string name="checkIn">签到</string>
     <string name="action_settings">Settings</string>
 </resources>

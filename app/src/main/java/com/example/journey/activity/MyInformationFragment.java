@@ -26,12 +26,18 @@ import com.example.journey.model.PersonalMsgAdapter;
 import com.example.journey.model.PushMessage;
 import com.example.journey.model.User;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.datatype.BmobDate;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.CountListener;
+import cn.bmob.v3.listener.QueryListener;
+import cn.bmob.v3.listener.UpdateListener;
 
 public class MyInformationFragment extends Fragment {
   private List<PersonalMsg> personalMsgList = new ArrayList<PersonalMsg>();
@@ -43,6 +49,7 @@ public class MyInformationFragment extends Fragment {
   private ImageButton message;//行程消息
   private ImageButton chat;//会话
   private TextView edit;
+  private TextView checkIn;
   private LinearLayout settings;
   //得到当前用户
   private User userInfo = User.getCurrentUser(User.class);
@@ -81,11 +88,11 @@ public class MyInformationFragment extends Fragment {
     });
 
     //点击会话图标进入会话列表
-    chat = (ImageButton)getActivity().findViewById(R.id.chat_button);
+    chat = (ImageButton) getActivity().findViewById(R.id.chat_button);
     chat.setOnClickListener(new View.OnClickListener() {
       @Override
       public void onClick(View view) {
-        Intent intent = new Intent(getActivity(),ChatListActivity.class);
+        Intent intent = new Intent(getActivity(), ChatListActivity.class);
         startActivity(intent);
       }
     });
@@ -97,6 +104,57 @@ public class MyInformationFragment extends Fragment {
         if (userInfo != null) {
           Intent intent = new Intent(getActivity(), EditActivity.class);
           startActivity(intent);
+        } else {
+          loginTip();
+        }
+      }
+    });
+    checkIn = (TextView) getActivity().findViewById(R.id.checkIn_button);
+    checkIn.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View v) {
+        if (userInfo != null) {
+          final Date curDate = new Date(System.currentTimeMillis()); //获取当前时间
+          final Date[] lastCheckIn = new Date[1];
+          final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");//小写的mm表示的是分钟
+          BmobQuery<User> query = new BmobQuery<User>();
+          query.getObject(userInfo.getObjectId(), new QueryListener<User>() {
+            @Override
+            public void done(final User object, BmobException e) {
+              if (e == null) {
+                final String dstr = object.getLastCheckIn().getDate();
+                try {
+                  lastCheckIn[0] = sdf.parse(dstr);
+                } catch (ParseException e1) {
+                  e1.printStackTrace();
+                }
+                if (!(curDate.getYear() == lastCheckIn[0].getYear() && curDate.getMonth() == lastCheckIn[0].getMonth()
+                        && curDate.getDay() == lastCheckIn[0].getDay())) {
+                  final User newUser = new User();
+                  newUser.setCredit(object.getCredit() + 2);
+                  newUser.setLastCheckIn(new BmobDate(curDate));
+                  newUser.update(userInfo.getObjectId(), new UpdateListener() {
+                    @Override
+                    public void done(BmobException e) {
+                      if (e == null) {
+                        Toast toast = Toast.makeText(getActivity(), "签到成功！积分+2", Toast.LENGTH_SHORT);
+                        toast.show();
+                      } else {
+                        Toast toast = Toast.makeText(getActivity(), "签到失败", Toast.LENGTH_SHORT);
+                        toast.show();
+                      }
+                    }
+                  });
+                } else {
+                  Toast toast = Toast.makeText(getActivity(), "你今天已经签到过了哦", Toast.LENGTH_SHORT);
+                  toast.show();
+                }
+              } else {
+                ;
+              }
+            }
+          });
+
         } else {
           loginTip();
         }
@@ -134,11 +192,11 @@ public class MyInformationFragment extends Fragment {
           } else {
             loginTip();
           }
-        }else if(i == 3){
-          if(userInfo != null){
-            Intent intent = new Intent(getActivity(),CreditMallActivity.class);
+        } else if (i == 3) {
+          if (userInfo != null) {
+            Intent intent = new Intent(getActivity(), CreditMallActivity.class);
             startActivity(intent);
-          }else{
+          } else {
             loginTip();
           }
         }
@@ -226,7 +284,7 @@ public class MyInformationFragment extends Fragment {
     personalMsgList.add(personalMsg2);
     PersonalMsg personalMsg3 = new PersonalMsg(R.drawable.ic_vote_up, "我的评价", R.drawable.ic_chevron_right_black_24dp);
     personalMsgList.add(personalMsg3);
-    PersonalMsg personalMsg4 = new PersonalMsg(R.drawable.ic_add_mall,"积分商城",R.drawable.ic_chevron_right_black_24dp);
+    PersonalMsg personalMsg4 = new PersonalMsg(R.drawable.ic_add_mall, "积分商城", R.drawable.ic_chevron_right_black_24dp);
     personalMsgList.add(personalMsg4);
   }
 

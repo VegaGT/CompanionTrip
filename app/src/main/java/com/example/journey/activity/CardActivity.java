@@ -46,22 +46,23 @@ import com.example.journey.util.StringUtils;
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import cn.bmob.newim.BmobIM;
 import cn.bmob.newim.bean.BmobIMConversation;
 import cn.bmob.newim.bean.BmobIMUserInfo;
 import cn.bmob.newim.listener.ConversationListener;
-import cn.bmob.v3.BmobInstallation;
-import cn.bmob.v3.BmobPushManager;
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.datatype.BmobDate;
 import cn.bmob.v3.datatype.BmobFile;
 import cn.bmob.v3.datatype.BmobPointer;
 import cn.bmob.v3.datatype.BmobRelation;
 import cn.bmob.v3.exception.BmobException;
 import cn.bmob.v3.listener.FindListener;
-import cn.bmob.v3.listener.PushListener;
 import cn.bmob.v3.listener.QueryListener;
 import cn.bmob.v3.listener.SaveListener;
 import cn.bmob.v3.listener.UpdateListener;
@@ -161,6 +162,7 @@ public class CardActivity extends Activity {
       public void done(final Post object, BmobException e) {
         if (e == null) {
           loadPost(object);
+          addCredit();
         } else {
           Log.i("bmob", "失败：" + e.getMessage() + "," + e.getErrorCode());
           Toast toast = Toast.makeText(CardActivity.this, "报错啦！！" + e.getMessage() + e.getErrorCode(), Toast.LENGTH_SHORT);
@@ -606,6 +608,46 @@ public class CardActivity extends Activity {
       e.printStackTrace();
     }
     return bmpUri;
+  }
+
+  public void addCredit(){
+    if (User.getCurrentUser(User.class) != null) {
+      final Date curDate = new Date(System.currentTimeMillis()); //获取当前时间
+      final Date[] lastOpenPost = new Date[1];
+      final SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd hh:mm");//小写的mm表示的是分钟
+      BmobQuery<User> query = new BmobQuery<User>();
+      query.getObject(User.getCurrentUser(User.class).getObjectId(), new QueryListener<User>() {
+        @Override
+        public void done(final User object, BmobException e) {
+          if (e == null) {
+            final String dstr = object.getLastOpenPost().getDate();
+            try {
+              lastOpenPost[0] = sdf.parse(dstr);
+            } catch (ParseException e1) {
+              e1.printStackTrace();
+            }
+            if (!(curDate.getYear() == lastOpenPost[0].getYear() && curDate.getMonth() == lastOpenPost[0].getMonth()
+                    && curDate.getDay() == lastOpenPost[0].getDay() && curDate.getHours() == lastOpenPost[0].getHours()
+                    && curDate.getMinutes() - lastOpenPost[0].getMinutes() < 5)) {
+              final User newUser = new User();
+              newUser.setCredit(object.getCredit() + 1);
+              newUser.setLastOpenPost(new BmobDate(curDate));
+              newUser.update(User.getCurrentUser(User.class).getObjectId(), new UpdateListener() {
+                @Override
+                public void done(BmobException e) {
+                  if (e == null) {
+
+                  } else {
+                    Toast toast = Toast.makeText(getApplicationContext(), "Something wrong with adding credit.", Toast.LENGTH_SHORT);
+                    toast.show();
+                  }
+                }
+              });
+            }
+          }
+        }
+      });
+    }
   }
 
 }

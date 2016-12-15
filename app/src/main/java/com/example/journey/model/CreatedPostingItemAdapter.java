@@ -21,7 +21,9 @@ import com.example.journey.activity.CompanionNewActivity;
 import java.util.List;
 
 import cn.bmob.v3.BmobQuery;
+import cn.bmob.v3.datatype.BmobPointer;
 import cn.bmob.v3.exception.BmobException;
+import cn.bmob.v3.listener.FindListener;
 import cn.bmob.v3.listener.QueryListener;
 import cn.bmob.v3.listener.UpdateListener;
 
@@ -122,19 +124,72 @@ public class CreatedPostingItemAdapter extends ArrayAdapter<PostingItem> {
         BmobQuery<Post> query = new BmobQuery<Post>();
         query.getObject(getItem(position).getPostID(), new QueryListener<Post>() {
           @Override
-          public void done(Post object, BmobException e) {
+          public void done(final Post object, BmobException e) {
             if (e == null) {
               object.setIsDone(true);
               object.update(new UpdateListener() {
                 @Override
                 public void done(BmobException e) {
                   if (e == null) {
+                    //完成行程后 发起者积分+100
+                    final User curUser = User.getCurrentUser(User.class);
+                    BmobQuery<User> query = new BmobQuery<User>();
+                    query.getObject(curUser.getObjectId(), new QueryListener<User>() {
+                      @Override
+                      public void done(final User object, BmobException e) {
+                        if (e == null) {
+                          final User newUser = new User();
+                          newUser.setCredit(object.getCredit() + 100);
+                          newUser.update(curUser.getObjectId(), new UpdateListener() {
+                            @Override
+                            public void done(BmobException e) {
+                              if (e == null) {
+                                Toast toast = Toast.makeText(getContext(), "行程已完成！积分+100", Toast.LENGTH_SHORT);
+                                toast.show();
+                              } else {
+                                Toast toast = Toast.makeText(getContext(), "失败", Toast.LENGTH_SHORT);
+                                toast.show();
+                              }
+                            }
+                          });
+                        }
+                      }
+                    });
 
+                    //完成行程后 参与者积分+50
+                    BmobQuery<User> query2 = new BmobQuery<User>();
+                    Post post = new Post();
+                    post.setObjectId(object.getObjectId());
+                    query2.addWhereRelatedTo("joinedPeople", new BmobPointer(post));
+                    query2.findObjects(new FindListener<User>() {
+                      @Override
+                      public void done(List<User> object,BmobException e) {
+                        if(e==null){
+                          for(int i = 0; i < object.size(); i++){
+                            User newUser = new User();
+                            newUser.setCredit(object.get(i).getCredit() + 50);
+                            newUser.update(object.get(i).getObjectId(), new UpdateListener() {
+                              @Override
+                              public void done(BmobException e) {
+                                if (e == null) {
+//                                  Toast toast = Toast.makeText(getContext(), "update success", Toast.LENGTH_SHORT);
+//                                  toast.show();
+                                } else {
+//                                  Toast toast = Toast.makeText(getContext(), "Something wrong with adding credit."+e.getMessage()+e.getErrorCode(), Toast.LENGTH_SHORT);
+//                                  toast.show();
+                                }
+                              }
+                            });
+                          }
+                        }
+                      }
+                    });
                   } else {
                     Toast toast = Toast.makeText(getContext(), "失败：" + e.getMessage(), Toast.LENGTH_SHORT);
                     toast.show();
                   }
                 }
+
 
               });
             } else {

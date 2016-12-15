@@ -3,11 +3,16 @@ package com.example.journey.model;
 import cn.bmob.v3.BmobObject;
 
 /**
- * Created by 高天 on 2016/10/11.
+ * Created by Li on 2016/12/9.
  */
-public class Theme extends BmobObject{
+public class Goods extends BmobObject {
     String name;
     String image;
+
+    public Goods(String name,String image){
+        this.name = name;
+        this.image = image;
+    }
 
     public String getName() {
         return name;
@@ -24,4 +29,5 @@ public class Theme extends BmobObject{
     public void setImage(String image) {
         this.image = image;
     }
+
 }

@@ -145,6 +145,19 @@
                     android:textColor="@color/transparent_white"
                     android:textSize="@dimen/tiny_text_size"
                     android:text="@string/edit"/>
+                <TextView
+                    android:id="@+id/checkIn_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_horizontal"
+                    android:padding="@dimen/small_space"
+                    android:layout_margin="@dimen/small_space"
+                    android:drawableLeft="@drawable/ic_check_black_24dp"
+                    android:drawablePadding="@dimen/small_space"
+                    android:background="@drawable/button_border"
+                    android:textColor="@color/transparent_white"
+                    android:textSize="@dimen/tiny_text_size"
+                    android:text="@string/checkIn" />
 
             </LinearLayout>
 

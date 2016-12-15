@@ -1,6 +1,7 @@
 package com.example.journey.model;
 
 import cn.bmob.v3.BmobUser;
+import cn.bmob.v3.datatype.BmobDate;
 import cn.bmob.v3.datatype.BmobFile;
 
 /**
@@ -15,6 +16,10 @@ public class User extends BmobUser {
   private Integer ratingNumber; //已经给此用户评分的人数
   private String resume;  //个人简介
   private String studentID; //学号
+  private String verify; //认证
+  private BmobDate lastCheckIn;//上次签到时间
+  private BmobDate lastOpenPost;//上次打开行程的时间
+  private Integer credit; //积分
 
   public Integer getAge() {
     return age;
@@ -79,5 +84,36 @@ public class User extends BmobUser {
   public void setStudentID(String studentID) {
     this.studentID = studentID;
   }
-}
 
+  public String getVerify() {
+    return verify;
+  }
+
+  public void setVerify(String verify) {
+    this.verify = verify;
+  }
+
+  public BmobDate getLastCheckIn() {
+    return lastCheckIn;
+  }
+
+  public void setLastCheckIn(BmobDate lastCheckIn) {
+    this.lastCheckIn = lastCheckIn;
+  }
+
+  public Integer getCredit() {
+    return credit;
+  }
+
+  public void setCredit(Integer credit) {
+    this.credit = credit;
+  }
+
+  public BmobDate getLastOpenPost() {
+    return lastOpenPost;
+  }
+
+  public void setLastOpenPost(BmobDate lastOpenPost) {
+    this.lastOpenPost = lastOpenPost;
+  }
+}

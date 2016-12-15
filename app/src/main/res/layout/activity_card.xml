@@ -196,11 +196,22 @@
 
                 </LinearLayout>
 
+
+
             </LinearLayout>
 
             <View
                 android:layout_width="match_parent"
                 android:layout_height="4dp"/>
+
+            <Button
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:id="@+id/eat_and_drink_btn"
+                android:background="@color/colorMaterialGrey50"
+                android:text="@string/eat_and_drink"
+                android:textSize="15sp"
+                android:textColor="@color/colorPrimary" />
 
             <LinearLayout
                 android:layout_width="match_parent"
