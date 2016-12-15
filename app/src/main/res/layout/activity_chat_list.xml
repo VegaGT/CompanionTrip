@@ -5,7 +5,7 @@
     android:layout_height="match_parent"
     tools:context="com.example.journey.activity.ChatListActivity">
     <RelativeLayout
-        android:id="@+id/top_relative"
+        android:id="@+id/top_chat_list"
         android:layout_width="fill_parent"
         android:layout_height="@dimen/action_bar_height"
         android:background="@color/colorPrimary"
@@ -34,6 +34,7 @@
     <ListView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_below="@id/top_chat_list"
         android:id="@+id/chatlist_listview">
 
     </ListView>

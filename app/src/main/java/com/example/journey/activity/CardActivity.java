@@ -23,6 +23,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.AnimationUtils;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.HorizontalScrollView;
 import android.widget.ImageButton;
@@ -100,6 +101,7 @@ public class CardActivity extends Activity {
   private HorizontalScrollView imageScroll;
   private LinearLayout imageLinear;
   private TextView sendMessage;
+  private Button eat_and_drink;
 
   @Override
   protected void onCreate(Bundle savedInstanceState) {
@@ -123,6 +125,7 @@ public class CardActivity extends Activity {
     imageScroll = (HorizontalScrollView) findViewById(R.id.image_scroll);
     imageLinear = (LinearLayout) findViewById(R.id.image_linear);
     sendMessage = (TextView)findViewById(R.id.send_message_btn);
+    eat_and_drink = (Button)findViewById(R.id.eat_and_drink_btn);
 
     nestedScrollView.setOnScrollChangeListener(new NestedScrollView.OnScrollChangeListener() {
       @Override
@@ -231,6 +234,14 @@ public class CardActivity extends Activity {
             }
           }
         });
+      }
+    });
+
+    eat_and_drink.setOnClickListener(new View.OnClickListener() {
+      @Override
+      public void onClick(View view) {
+        Intent intent = new Intent(CardActivity.this,ShopMessageActivity.class);
+        startActivity(intent);
       }
     });
   }

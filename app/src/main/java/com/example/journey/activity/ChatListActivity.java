@@ -3,6 +3,7 @@ package com.example.journey.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 
 import com.example.journey.R;
 import com.example.journey.model.ChatListItem;
@@ -27,6 +28,10 @@ public class ChatListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat_list);
 
         
+    }
+
+    public void back_to_chat_icon(View view){
+        finish();
     }
 
 }
